@@ -1,0 +1,11 @@
+﻿{
+  "javascript": [
+    "/App_Plugins/Our.Umbraco.RecentActivityDashboard/controllers/ContentDashboardController.controller.js",
+    "/App_Plugins/Our.Umbraco.RecentActivityDashboard/controllers/ContentActivityDashboardController.controller.js",
+    "/App_Plugins/Our.Umbraco.RecentActivityDashboard/controllers/MediaActivityDashboardController.controller.js",
+    "/App_Plugins/Our.Umbraco.RecentActivityDashboard/controllers/SettingsActivityDashboardController.controller.js",
+    "/App_Plugins/Our.Umbraco.RecentActivityDashboard/controllers/MemberActivityDashboardController.controller.js",
+    "/App_Plugins/Our.Umbraco.RecentActivityDashboard/resources/activitydashboardresource.resource.js"
+  ]
+}
+

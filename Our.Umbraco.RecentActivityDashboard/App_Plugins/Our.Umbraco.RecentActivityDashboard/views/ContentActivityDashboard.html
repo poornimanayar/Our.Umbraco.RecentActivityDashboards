@@ -1,0 +1,54 @@
+﻿<div ng-controller="ContentActivityDashboardController as vm">
+    <umb-box>
+        <umb-box-header title="Recent content activity on the site"
+                        description=">All the content activity on your site in the past 24 hours"
+                        title-key="contentActivityDashboard_headerTitle"
+                        description-key="contentActivityDashboard_headerDescription"></umb-box-header>
+        <umb-box-content ng-if="!vm.documentLogs || vm.documentLogs.length <= 0">
+            <h4><localize key="general_noActivity">No recent activity</localize></h4>
+        </umb-box-content>
+    </umb-box>
+    
+    <div class="umb-table" ng-if="vm.documentLogs && vm.documentLogs.length > 0">
+        <div class="umb-table-head">
+            <div class="umb-table-row">
+                <div class="umb-table-cell">
+
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="ActivityTable_name">Name</localize>
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="ActivityTable_username">Username</localize>
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="ActivityTable_action">Action</localize>
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="ActivityTable_editNode">Edit node</localize>
+                </div>
+            </div>
+        </div>
+        <div class="umb-table-body">
+            <div class="umb-table-row umb-outline" ng-repeat="logEntry in vm.documentLogs">
+                <div class="umb-table-cell">
+                    <i class="{{logEntry.Icon}}"></i>
+                </div>
+                <div class="umb-table-cell">
+                    <span class="text-primary">{{logEntry.NodeName}}</span>
+                </div>
+                <div class="umb-table-cell">
+                    <span class="text-primary">{{logEntry.UserName}}</span>
+                </div>
+                <div class="umb-table-cell">
+                    <span class="text-primary" title="{{logEntry.Action}} on: {{logEntry.DateStamp}}">{{logEntry.Action}} on: {{logEntry.DateStamp}}</span>
+                </div>
+                <div class="umb-table-cell">
+                    <umb-button type="button" action="vm.goToNode(logEntry.EditUrl)"
+                                button-style="action" size="sm"
+                                label-key="ActivityTable_editNode" label="Edit Node"></umb-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

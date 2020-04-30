@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Our.Umbraco.RecentActivityDashboard</id>
+    <version>1.0</version>
+    <title>Our.Umbraco.RecentActivityDashboard</title>
+    <authors>Poornima Nayar</authors>
+    <owners>Poornima Nayar</owners>
+   <license type="expression">MIT</license>
+    <projectUrl>https://github.com/poornimanayar/Our.Umbraco.RecentActivityDashboards/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A collection of dashboards to show recent activity on your Umbraco CMS</description>
+    <releaseNotes>
+      - A collection of dashboards to show recent activity on your Umbraco CMS
+    </releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Umbraco Dashboard</tags>
+  </metadata>
+  <files>
+    <file src="App_Plugins\Our.Umbraco.RecentActivityDashboard\**\*.*" target="content\App_Plugins\Our.Umbraco.RecentActivityDashboard" />
+  </files>  
+</package>

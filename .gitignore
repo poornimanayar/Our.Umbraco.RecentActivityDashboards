@@ -1,0 +1,13 @@
+
+/.vs/
+/Our.Umbraco.RecentActivityDashboard/packages/
+/bin/
+Our.Umbraco.RecentActivityDashboard\/Our.Umbraco.RecentActivityDashboard.Web/App_Data
+Our.Umbraco.RecentActivityDashboard/nuget.exe
+Our.Umbraco.RecentActivityDashboard/Our.Umbraco.RecentActivityDashboard.1.0.0.nupkg
+*.user
+Our.Umbraco.RecentActivityDashboard.Web/App_Data/
+packages/
+Our.Umbraco.RecentActivityDashboard/obj/
+Our.Umbraco.RecentActivityDashboard.Web/bin/
+Our.Umbraco.RecentActivityDashboard/bin/

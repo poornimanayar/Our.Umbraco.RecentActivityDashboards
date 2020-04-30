@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <area alias="dashboardTabs">
+    <key alias="Our.Umbraco.ContentDashboard">Your content activity</key>
+    <key alias="Our.Umbraco.ContentActivityDashboard">Recent content activity</key>
+    <key alias="Our.Umbraco.MediaActivityDashboard">Recent media activity</key>
+    <key alias="Our.Umbraco.SettingsActivityDashboard">Recent settings activity</key>
+    <key alias="Our.Umbraco.MemberActivityDashboard">Recent member activity</key>
+  </area>
+  <area alias="general">
+    <key alias="noActivity">No recent activity</key>
+  </area>
+  <area alias="contentDashboard">
+    <key alias="headerTitle">Recent content activity</key>
+    <key alias="headerDescription">All your content activity for the past 24 hours</key>
+  </area>
+  <area alias="contentActivityDashboard">
+    <key alias="headerTitle">Recent content activity on the site</key>
+    <key alias="headerDescription">All the content activity on your site in the past 24 hours</key>
+  </area>
+  <area alias="mediaActivityDashboard">
+    <key alias="headerTitle">Recent media activity on the site</key>
+    <key alias="headerDescription">All the media activity on your site in the past 24 hours</key>
+  </area>
+  <area alias="settingsActivityDashboard">
+    <key alias="headerTitle">Recent settings activity on the site</key>
+    <key alias="headerDescription">All the settings activity on your site in the past 30 days</key>
+  </area>
+  <area alias="memberActivityDashboard">
+    <key alias="headerTitle">Recent member activity on the site</key>
+    <key alias="headerDescription">All the member activity on your site in the past 24 hours</key>
+  </area>
+    <area alias="ActivityTable">
+      <key alias="name">Name</key>
+      <key alias="action">Action</key>
+      <key alias="editNode">Edit Node</key>
+      <key alias="editMedia">Edit Node</key>
+      <key alias="username">Username</key>
+      <key alias="entityType">Entity Type</key>
+    </area>
+
+</language>
