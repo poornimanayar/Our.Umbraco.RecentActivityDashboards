@@ -24,7 +24,7 @@
   </area>
   <area alias="settingsActivityDashboard">
     <key alias="headerTitle">Recent settings activity on the site</key>
-    <key alias="headerDescription">All the settings activity on your site in the past 30 days</key>
+    <key alias="headerDescription">All the settings activity on your site in the last 30 days</key>
   </area>
   <area alias="memberActivityDashboard">
     <key alias="headerTitle">Recent member activity on the site</key>
@@ -36,6 +36,7 @@
       <key alias="editNode">Edit Node</key>
       <key alias="editMedia">Edit Node</key>
       <key alias="username">Username</key>
+      <key alias="changedBy">Changed by</key>
       <key alias="entityType">Entity Type</key>
     </area>
 

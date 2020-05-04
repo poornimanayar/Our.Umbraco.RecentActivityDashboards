@@ -4,7 +4,7 @@ using Umbraco.Core.Dashboards;
 
 namespace Our.Umbraco.ContentDashboard.Dashboards
 {
-    [Weight(-10)]
+    [Weight(15)]
    public class MediaActivityDashboard : IDashboard
    {
        public string Alias => "Our.Umbraco.MediaActivityDashboard";

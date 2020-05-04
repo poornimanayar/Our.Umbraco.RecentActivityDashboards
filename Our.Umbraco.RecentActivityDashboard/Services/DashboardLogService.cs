@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Our.Umbraco.ContentDashboard.Helpers;
 using Our.Umbraco.ContentDashboard.Models;
-using Umbraco.Core;
 using Umbraco.Core.Mapping;
 using Umbraco.Core.Models.Entities;
 using Umbraco.Core.Scoping;
@@ -40,9 +38,7 @@ namespace Our.Umbraco.ContentDashboard.Services
 
         private readonly IRelationService _relationService;
 
-        private readonly IUmbracoContextFactory _umbracoContextFactory;
-
-        public DashboardLogService(IScopeProvider scopeProvider, IUserService userService, IEntityService entityService, IContentTypeService contentTypeService, UmbracoMapper mapper, IContentService contentService, IMemberService memberService, IMediaTypeService mediaTypeService, IMemberTypeService memberTypeService, IDataTypeService dataTypeService, IRelationService relationService, IMediaService mediaService, IUmbracoContextFactory umbracoContextFactory)
+        public DashboardLogService(IScopeProvider scopeProvider, IUserService userService, IEntityService entityService, IContentTypeService contentTypeService, UmbracoMapper mapper, IContentService contentService, IMemberService memberService, IMediaTypeService mediaTypeService, IMemberTypeService memberTypeService, IDataTypeService dataTypeService, IRelationService relationService, IMediaService mediaService)
         {
             _scopeProvider = scopeProvider;
             _userService = userService;
@@ -56,7 +52,6 @@ namespace Our.Umbraco.ContentDashboard.Services
             _dataTypeService = dataTypeService;
             _relationService = relationService;
             _mediaService = mediaService;
-            _umbracoContextFactory = umbracoContextFactory;
         }
         public List<LogItem> GetLogs(string[] logHeader, string[] entityType, DateTime sinceDate)
         {
@@ -115,7 +110,7 @@ namespace Our.Umbraco.ContentDashboard.Services
             }
         }
 
-        private EntityBasic GetEntity(int nodeId)
+       private EntityBasic GetEntity(int nodeId)
         {
             var entity = _entityService.Get(nodeId);
            return _mapper.Map<IEntitySlim, EntityBasic>(entity);

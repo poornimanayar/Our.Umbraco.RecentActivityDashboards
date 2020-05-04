@@ -31,6 +31,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClientDependency.Core, Version=1.9.9.0, Culture=neutral, processorArchitecture=MSIL">
@@ -253,6 +257,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\package.manifest" />
+    <None Include="Our.Umbraco.RecentActivityDashboard.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
@@ -261,12 +266,16 @@
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\controllers\MediaActivityDashboardController.controller.js" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\controllers\MemberActivityDashboardController.controller.js" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\controllers\SettingsActivityDashboardController.controller.js" />
-    <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\lang\en.xml" />
+    <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\lang\en-au.xml" />
+    <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\lang\en-ca.xml" />
+    <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\lang\en-us.xml" />
+    <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\lang\en-gb.xml" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\resources\activitydashboardresource.resource.js" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\views\ContentActivityDashboard.html" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\views\MediaActivityDashboard.html" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\views\MemberActivityDashboard.html" />
     <Content Include="App_Plugins\Our.Umbraco.RecentActivityDashboard\views\SettingsActivityDashboard.html" />
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
