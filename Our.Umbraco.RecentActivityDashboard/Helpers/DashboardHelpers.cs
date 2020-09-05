@@ -1,7 +1,7 @@
-﻿using Our.Umbraco.ContentDashboard.Constants;
-using Our.Umbraco.ContentDashboard.Models;
+﻿using Our.Umbraco.RecentActivityDashboard.Constants;
+using Our.Umbraco.RecentActivityDashboard.Models;
 
-namespace Our.Umbraco.ContentDashboard.Helpers
+namespace Our.Umbraco.RecentActivityDashboard.Helpers
 {
     public static class DashboardHelpers
     {

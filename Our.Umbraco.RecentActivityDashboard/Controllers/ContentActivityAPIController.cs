@@ -1,48 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
-using Our.Umbraco.ContentDashboard.Constants;
-using Our.Umbraco.ContentDashboard.Models;
-using Our.Umbraco.ContentDashboard.Services;
+using Our.Umbraco.RecentActivityDashboard.Constants;
+using Our.Umbraco.RecentActivityDashboard.Models;
+using Our.Umbraco.RecentActivityDashboard.Services;
+using Umbraco.Core.Logging;
 using Umbraco.Web.Editors;
 using Umbraco.Web.Mvc;
 
-namespace Our.Umbraco.ContentDashboard.Controllers
+namespace Our.Umbraco.RecentActivityDashboard.Controllers
 {
     [PluginController("OurUmbracoActivityDashboard")]
     public class ContentActivityApiController : UmbracoAuthorizedJsonController
     {
         private readonly IDashboardLogService _dashboardLogService;
 
+        private readonly ILogger _logger;
+
         private DateTime sinceDate = DateTime.Now.Subtract(new TimeSpan(days: 1, 0, 0, 0));
 
-        public ContentActivityApiController(IDashboardLogService dashboardLogService)
+        public ContentActivityApiController(IDashboardLogService dashboardLogService, ILogger logger)
         {
             _dashboardLogService = dashboardLogService;
+            _logger = logger;
         }
 
 
         public List<LogItem> GetDocumentLogs()
         {
-            return _dashboardLogService.GetLogs(DashboardConstants.DocumentLogHeader,
-                DashboardConstants.DocumentEntityType, sinceDate);
+            try
+            {
+                return _dashboardLogService.GetLogs(DashboardConstants.DocumentLogHeader,
+                    DashboardConstants.DocumentEntityType, sinceDate);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error<ContentActivityApiController>(ex.ToString());
+                return null;
+            }
+          
         }
 
         public List<LogItem> GetMediaLogs()
         {
-            return _dashboardLogService.GetLogs(DashboardConstants.MediaLogHeader,
-                DashboardConstants.MediaEntityType, sinceDate);
+            try
+            {
+                return _dashboardLogService.GetLogs(DashboardConstants.MediaLogHeader,
+                    DashboardConstants.MediaEntityType, sinceDate);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error<ContentActivityApiController>(ex.ToString());
+                return null;
+            }
         }
 
         public List<LogItem> GetSettingsLogs()
         {
-            return _dashboardLogService.GetLogs(DashboardConstants.SettingsLogHeader,
-                DashboardConstants.SettingsEntityType, DateTime.Now.Subtract(new TimeSpan(days: 30, 0, 0, 0)));
+            try
+            {
+                return _dashboardLogService.GetLogs(DashboardConstants.SettingsLogHeader,
+                    DashboardConstants.SettingsEntityType, DateTime.Now.Subtract(new TimeSpan(days: 30, 0, 0, 0)));
+            }
+            catch (Exception ex)
+            {
+                _logger.Error<ContentActivityApiController>(ex.ToString());
+                return null;
+            }
         }
 
         public List<LogItem> GetMemberLogs()
         {
-            return _dashboardLogService.GetLogs(DashboardConstants.MemberLogHeader,
-                DashboardConstants.MemberEntityType, sinceDate);
+            try
+            {
+                return _dashboardLogService.GetLogs(DashboardConstants.MemberLogHeader,
+                    DashboardConstants.MemberEntityType, sinceDate);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error<ContentActivityApiController>(ex.ToString());
+                return null;
+            }
         }
 
     }

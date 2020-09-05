@@ -1,4 +1,4 @@
-﻿namespace Our.Umbraco.ContentDashboard.Constants
+﻿namespace Our.Umbraco.RecentActivityDashboard.Constants
 {
     public static class DashboardConstants
     {

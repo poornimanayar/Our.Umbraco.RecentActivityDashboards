@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Our.Umbraco.ContentDashboard.Helpers;
-using Our.Umbraco.ContentDashboard.Models;
+using Our.Umbraco.RecentActivityDashboard.Helpers;
+using Our.Umbraco.RecentActivityDashboard.Models;
 using Umbraco.Core.Mapping;
 using Umbraco.Core.Models.Entities;
 using Umbraco.Core.Scoping;
 using Umbraco.Core.Services;
-using Umbraco.Web;
 using Umbraco.Web.Models.ContentEditing;
 
-namespace Our.Umbraco.ContentDashboard.Services
+namespace Our.Umbraco.RecentActivityDashboard.Services
 {
     public class DashboardLogService : IDashboardLogService
     {
@@ -59,26 +58,31 @@ namespace Our.Umbraco.ContentDashboard.Services
             {
                 var sql = scope.SqlContext.Sql().Select("*").From("umbracoLog")
                             .Where("entityType in (@entityType) and logHeader in (@logHeader) and Datestamp >= @sinceDate",
-                    new { sinceDate = sinceDate, logHeader = logHeader, entityType = entityType});
+                    new { sinceDate = sinceDate, logHeader = logHeader, entityType = entityType });
 
                 var logDtos = scope.Database.Fetch<LogDto>(sql);
-                
+
                 var logItemsList = new List<LogItem>();
-                foreach (var item in logDtos.Where(i => i.NodeId != -1))
+                foreach (var item in logDtos.Where(i => i.NodeId != -1 && i.NodeId !=-20))
                 {
                     var entity = GetEntity(item.NodeId);
-                    logItemsList.Add(new LogItem()
+                    if (entity != null)
                     {
-                        Action = item.LogHeader,
-                        UserId = item.UserId ?? global::Umbraco.Core.Constants.Security.UnknownUserId,
-                        NodeId = item.NodeId,
-                        DateStamp = item.Datestamp.ToString("MMM dd, yyyy HH:mm"),
-                        UserName = item.UserId != null ? _userService.GetUserById(Convert.ToInt32(item.UserId)).Name : global::Umbraco.Core.Constants.Security.UnknownUserName,
-                        NodeName = entity.Name,
-                        EditUrl = item.GetEditUrl(),
-                        EntityType = item.EntityType,
-                        Icon = GetIcon(item)
-                    });
+                        logItemsList.Add(new LogItem()
+                        {
+                            Action = item.LogHeader,
+                            UserId = item.UserId ?? global::Umbraco.Core.Constants.Security.UnknownUserId,
+                            NodeId = item.NodeId,
+                            DateStamp = item.Datestamp.ToString("MMM dd, yyyy HH:mm"),
+                            UserName = item.UserId != null
+                                ? _userService.GetUserById(Convert.ToInt32(item.UserId)).Name
+                                : global::Umbraco.Core.Constants.Security.UnknownUserName,
+                            NodeName = entity.Name,
+                            EditUrl = item.GetEditUrl(),
+                            EntityType = item.EntityType,
+                            Icon = GetIcon(item)
+                        });
+                    }
                 }
 
                 return logItemsList;
@@ -102,7 +106,7 @@ namespace Our.Umbraco.ContentDashboard.Services
                 case "membertype":
                     return _memberTypeService.Get(logItem.NodeId).Icon;
                 case "datatype":
-                    return _dataTypeService.GetAll(new[] {logItem.NodeId}).FirstOrDefault().Editor.Icon;
+                    return _dataTypeService.GetAll(new[] { logItem.NodeId }).FirstOrDefault().Editor.Icon;
                 case "dictionaryitem":
                     return "icon-book-alt";
                 default:
@@ -110,10 +114,10 @@ namespace Our.Umbraco.ContentDashboard.Services
             }
         }
 
-       private EntityBasic GetEntity(int nodeId)
+        private EntityBasic GetEntity(int nodeId)
         {
             var entity = _entityService.Get(nodeId);
-           return _mapper.Map<IEntitySlim, EntityBasic>(entity);
+            return entity != null ? _mapper.Map<IEntitySlim, EntityBasic>(entity) : null;
         }
 
     }

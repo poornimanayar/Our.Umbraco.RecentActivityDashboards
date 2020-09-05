@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Our.Umbraco.ContentDashboard.Models;
+using Our.Umbraco.RecentActivityDashboard.Models;
 
-namespace Our.Umbraco.ContentDashboard.Services
+namespace Our.Umbraco.RecentActivityDashboard.Services
 {
    public interface IDashboardLogService
    {

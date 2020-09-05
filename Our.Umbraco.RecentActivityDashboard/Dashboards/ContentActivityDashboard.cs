@@ -2,7 +2,7 @@
 using Umbraco.Core.Composing;
 using Umbraco.Core.Dashboards;
 
-namespace Our.Umbraco.ContentDashboard.Dashboards
+namespace Our.Umbraco.RecentActivityDashboard.Dashboards
 {
     [Weight(-10)]
     public class ContentActivityDashboard : IDashboard

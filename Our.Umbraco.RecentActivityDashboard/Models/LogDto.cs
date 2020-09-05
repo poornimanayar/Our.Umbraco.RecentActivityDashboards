@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Our.Umbraco.ContentDashboard.Models
+namespace Our.Umbraco.RecentActivityDashboard.Models
 {
     public class LogDto
     {

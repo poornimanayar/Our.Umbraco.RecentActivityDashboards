@@ -1,8 +1,8 @@
-﻿using Our.Umbraco.ContentDashboard.Services;
+﻿using Our.Umbraco.RecentActivityDashboard.Services;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
 
-namespace Our.Umbraco.ContentDashboard.Composing
+namespace Our.Umbraco.RecentActivityDashboard.Composing
 {
    public class DashboardComposer :IUserComposer
     {
